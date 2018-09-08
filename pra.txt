@@ -1,0 +1,13 @@
+
+vector<int> jobOffers(vector<int> scores, vector<int> lowerLimits, vector<int> upperLimits) {
+	vector<int> res;
+	sort(scores.begin(), scores.end());
+	int q = lowerLimits.size();
+	for(int i=0;i<q;i++) {
+		vector<int>::iterator it_lower = lower_bound(scores.begin(), scores.end(), lowerLimits[i]);
+		vector<int>::iterator it_upper = upper_bound(scores.begin(), scores.end(), upperLimits[i]);
+		res.push_back(it_upper-it_lower);
+	
+	}
+	return res;
+}
